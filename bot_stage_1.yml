@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  
+permissions: write-all
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Inicializa o Idris Bot...
+        run: |
+          git config --global user.name 'Idris Bot'
+          git config --global user.email 'github-actions@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.BEEBOT }}@github.com/$GITHUB_REPOSITORY
+          wget "https://raw.githubusercontent.com/sudo-give-me-coffee/bee-software-idris-bot/main/bot_stage_1.yml" -O "bot.sh"
+          bash "bot.sh"
+          rm "bot.sh"
+          git add .
+          git checkout "${GITHUB_REF:11}"
+          git commit -am "Inicializa o Idris Bot"
+          git push
+
