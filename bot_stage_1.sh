@@ -55,57 +55,131 @@ echo "<h1 align='center'><a href='https://github.com/${GITHUB_REPOSITORY}/issues
 
 cat > .github/ISSUE_TEMPLATE/FORM_DESCRIPTION.yml <<\EOF
 
-name: Sugerir uma nova categoria para o aplicativo
-description: Sugira uma modificação que altera onde o aplicativo será exibido no menu de aplicativos
-title: "Modificação onde o aplicativo será exibido"
-labels: ["Sugestão tipo 3"]
+name: Criando uma descrição pro Workspace
+description: Nessa página você descreve seu workspace, é só responder o que for perguntado, é fácil, pra começar, vamos dar um título pro seu workspace
+title: "Lista de tarefas"
+labels: ["none"]
 
 body:
-
+  - type: markdown
+    attributes:
+      value: |
+        <big>Um bom nome para um workspace é completamente inteligível, por exemplo, se você está desenvolvendo uma lista de tarefas, não faz sentido usar "Super TaskLyst" ao invés disso coloque "Lista de tarefas" lembre-se que o Bee OS é orientado a intenção do usuário e não a aplicativos</big>
   - type: input
     id: _
     attributes:
-      label: Qual o arquivo .desktop responsável pelo aplicativo?
-      description: Esse é o arquivo responsável por iniciar o aplicativo, ele fica localizado em `/usr/share/applications/`
-      placeholder: "org.kde.kwrite.desktop"
+      label: Qual o nome comercial do seu workspace?
+      description: <big></big>
     validations:
       required: true
-  - type: dropdown
-    id: category
+  - type: markdown
     attributes:
-      label: Onde o aplicativo deve ser exibido?
-      description: O local representa as categorias no `Menu de aplicativos` caso escolha `Configurações` o aplicativo será enviado para o `Painel de controle`
+      value: |
+        <big>Um bom nome comercial, não deve ser igual ou semelhante a outro que já existe na loja ou violar direitos autorais, outro detalhe importante é que o nome comercial não deve ser um nome genérico como "Lista de tarefas" o nome genérico (isto é, o nome que descreve o que o espaço de trabalho faz) deve ser colocado no primeiro campo </big>
+        
+  - type: dropdown
+    id: color
+    attributes:
+      label: Escolha uma cor que combina com o seu espaço de trabalho꞉
+      description: <big></big>
       options:
-        - Acessórios
-        - Configurações
-        - Desenvolvimento
-        - Escritório
-        - Gráficos
-        - Internet
-        - Multimídia
-        - Áudio
-        - Sistema
+        - Ametista
+        - Céu azul
+        - Nuvens
+        - Argila
+        - Concreto
+        - Prata
+        - Asfalto
+        - Esmeralda
+        - Tomate
+        - Cenoura
+        - Girassol
+        - Verde-marinho
     validations:
       required: true
+      
+  - type: markdown
+    attributes:
+      value: |
+        <big>Aqui você pode escolher a cor dos cabeçalhos dos módulos do seu espaço de trabalho, logo abaixo você pode ver o catálogo das cores</big>
+        <table>
+          <tr>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/ametista.png"/></td>
+            <td>Ametista</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/argila.png"/></td>
+            <td>Argila</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/asfalto.png"/></td>
+            <td>Asfalto</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/cenoura.png"/></td>
+            <td>Cenoura</td>
+          </tr>
+          <tr>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/ceu-azul.png"/></td>
+            <td>Céu azul</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/concreto.png"/></td>
+            <td>Concreto</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/esmeralda.png"/></td>
+            <td>Esmeralda</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/girassol.png"/></td>
+            <td>Girassol</td>
+          </tr>
+          <tr>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/nuvens.png"/></td>
+            <td>Nuvens</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/prata.png"/></td>
+            <td>Prata</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/tomate.png"/></td>
+            <td>Tomate</td>
+            <td><img src="https://github.com/sudo-give-me-coffee/bee-software-idris-bot/raw/main/colors/verde-marinho.png"/></td>
+            <td>Verde-marinho</td>
+          </tr>
+        </table>
+      
   - type: dropdown
-    id: control
+    id: custom_modules
     attributes:
-      label:  Qual categoria do painel de controle?
-      description: Caso tenha escolhido `Configurações` é necessário escolher uma categoria do `Painel de Controle` caso contrário o aplicativo ficará oculto, caso queira manter na categoria `Configurações` [envie outra issue soicitando a reexibição](https://github.com/Tiger-OperatingSystem/simplifica-xfce/issues/new?assignees=&labels=Sugest%C3%A3o&template=FORM-NAME.yml&title=Reexibir+o+aplicativo&type=1)
+      label: O usuário vai poder adicionar novos módulos?
+      description: <big></big>
       options:
-        - Pessoal
-        - Hardware
-        - Sistema
-        - Outros
+        - Sim, vai poder mas apenas os que já vem no espaço de trabalho
+        - Sim, qualquer módulo compativel com os módulos adicionados por mim
+        - Não, o usuário não vai poder adicionar novos módulos
     validations:
-      required: false
-  - type: checkboxes
-    id: terms
+      required: true
+      
+  - type: markdown
     attributes:
-      label: "Termo de bom senso"
-      description: Você confirma que não está enviando sugestão de conteúdo racista, sexista, sexual, gore, apologia a violência, preferência política ou conteúdo sensível e/ou proíbido para menores de 18 anos?
-      options:
-        - label: Sim, não estou
-          required: true
+      value: |
+        <big>Aqui você pode escolher como será a relação do usuário com módulos extras, veja o que significa cada opção꞉</big>
+      
+        #### Sim, vai poder mas apenas os que já vem no espaço de trabalho
+        
+        Caso escolha essa opção o usuário irá poder adicionar quantos quiser, porém a escolha estará limitada aos módulos que você pré adicionar ao workspace
+        
+        #### Sim, qualquer módulo compativel com os módulos adicionados por mim
+        
+        No caso dessa opção o usuário poderá adicionar qualquer módulo compativel com os pré adicionados
+        
+        #### Não, o usuário não vai poder adicionar novos módulos
+        
+        E por fim, escolha essa opção caso queira que o usuário fique limitado aos módulos que você adicionar
+        <br/>
+        
+  - type: textarea
+    attributes:
+      label: E por fim, a descrição
+      description: "<big></big>"
+      placeholder: |
+        Agora que você já deu um nome, já escolheu uma linda cor e escolheu o escopo, é hora de finalizar descrevendo o que é o seu workspace e pra que ele serve aqui, essa descrição é o que os usuários verão na Bee Store, e não se preocupe com screenshots agora, o bot de publicação na loja vai cuidar disso pra você :)
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        <big>Quando você terminar de descrever seu espaço de trabalho clique no botão **Submit new issue** e o próximo bot será iniciado!</big>
+ 
+        
+
 EOF
 
