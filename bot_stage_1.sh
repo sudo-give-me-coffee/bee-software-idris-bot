@@ -177,7 +177,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        <big>Quando você terminar de descrever seu espaço de trabalho clique no botão **Submit new issue** e o próximo bot será iniciado!</big>
+        <big>Quando você terminar de descrever seu espaço de trabalho clique no botão **Submit new issue** e o próximo estágio do bot será iniciado!</big>
  
         
 
