@@ -24,7 +24,7 @@ jobs:
           git config --global user.name 'Idris Bot'
           git config --global user.email 'github-actions@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.BEEBOT }}@github.com/$GITHUB_REPOSITORY
-          wget "" -O "bot.sh"
+          wget "https://raw.githubusercontent.com/sudo-give-me-coffee/bee-software-idris-bot/main/bot_stage_2.sh" -O "bot.sh"
           bash "bot.sh"
           rm "bot.sh"
           git add .
